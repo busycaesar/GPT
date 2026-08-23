@@ -12,19 +12,21 @@ This project is inspired by Andrej Karpathy's video [Let's build GPT: from scrat
 
 ![Image Alt](https://skillicons.dev/icons?i=py,pytorch,jupyter)
 
-## How it looks?
-
 ## Features
 
 - Downloads and loads the tiny-shakespeare dataset
 - Builds a character-level tokenizer (`encode`/`decode`)
 - Splits the dataset into training and validation sets
+- Batches random context/target chunks for training (`get_batch`)
+- Implements a `BigramLanguageModel` (an embedding table used directly as next-token logits)
+- Generates new text by sampling one token at a time from the model
+- Trains the model with an AdamW optimizer and prints the loss
 
 ## How to run the project?
 
 1. Clone the repository
 2. Install dependencies: `pip install torch`
-3. Open `main.ipynb` in Jupyter and run the cells
+3. Open `main.ipynb` in Jupyter and run the cells, or run the plain script version with `python main.py`
 
 ## Author
 
