@@ -12,15 +12,19 @@ This project is inspired by Andrej Karpathy's video [Let's build GPT: from scrat
 
 ![Image Alt](https://skillicons.dev/icons?i=py,pytorch,jupyter)
 
-## Features
+## Workflow
 
-- Downloads and loads the tiny-shakespeare dataset
-- Builds a character-level tokenizer (`encode`/`decode`)
-- Splits the dataset into training and validation sets
-- Batches random context/target chunks for training (`get_batch`)
-- Implements a `BigramLanguageModel` (an embedding table used directly as next-token logits)
-- Generates new text by sampling one token at a time from the model
-- Trains the model with an AdamW optimizer and prints the loss
+This project walks through the full pipeline of building a character-level GPT from scratch:
+
+1. Downloads and loads the tiny-shakespeare dataset for training
+2. Tokenizes text at the character level, converting between raw text and numeric token sequences
+3. Splits the dataset into training and validation sets
+4. Samples random batches of context and target sequences for training
+5. Trains a bigram language model, where each token directly predicts the next token's probabilities, using an AdamW optimizer running on a GPU when one is available
+6. Periodically evaluates and reports the model's averaged training and validation loss during training
+7. Generates new text by repeatedly sampling one token at a time from the trained model
+
+All training hyperparameters, such as batch size, context length, iteration count, and learning rate, are centralized in one place.
 
 ## How to run the project?
 
